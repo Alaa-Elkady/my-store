@@ -35,7 +35,7 @@ export default function WishList({setWishlistProduct}) {
           <div className="container">
             <div className="row">
               <div className="col">
-                <img src={item.image} className="w-50" />
+                <img src={item.imageURL} className="w-50" />
               </div>
               <div className="col">
                 <h3 style={{ color: "#dc3545", fontSize: "18px" }}>

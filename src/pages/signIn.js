@@ -6,6 +6,7 @@ import { UserData } from "../userData";
 import bubble from "../images/Bubbles.png";
 import shoe from "../images/Aire Jordan Nike.png";
 import vector from "../images/Vector.png";
+import { Link } from "react-router-dom";
 const SignInForm = ({ setIsUser }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -57,11 +58,11 @@ const SignInForm = ({ setIsUser }) => {
         <img src={shoe} className="shoe" />
       </div>
 
-      <div className="header">
+      {/* <div className="header">
         <img src={vector} className="vector" />
         <div className="logo">Shoe Kadia</div>
         <div className="signin"></div>
-      </div>
+      </div> */}
 
       <Form onSubmit={handleSubmit} className="form">
       <div className="heading">Welcome Back !</div>
@@ -89,7 +90,7 @@ const SignInForm = ({ setIsUser }) => {
           Sign In
         </button>
         <div className="signup">Don't have an account? </div>
-        <div href="" className="signUpBtn">Sign Up</div>
+        <Link to="/signUp" className="signUpBtn">Sign Up</Link>
       </Form>
     </div>
   );

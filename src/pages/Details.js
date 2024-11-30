@@ -14,7 +14,7 @@ export default function Details({ items }) {
               <div className="row">
                 <div className="col-lg-6 col-md-12 mb-4 mb-lg-0">
                   <img
-                    src={item.image}
+                    src={item.imageURL}
                     className="img w-100 shadow-1-strong rounded mb-4"
                     alt=""
                   />

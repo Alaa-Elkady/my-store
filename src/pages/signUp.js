@@ -70,11 +70,11 @@ const SignUpForm = () => {
         <img src={shoe} className="shoe" />
       </div>
 
-      <div className="header">
+      {/* <div className="header">
         <img src={vector} className="vector" />
         <div className="logo">Shoe Kadia</div>
         <div className="signin"></div>
-      </div>
+      </div> */}
       <div>
         <Form onSubmit={handleSignup} className="form">
           <div className="heading">Welcome !</div>

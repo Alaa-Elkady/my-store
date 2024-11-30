@@ -12,18 +12,18 @@ export default function Products({
   const navigate = useNavigate();
   const { user } = useContext(UserData);
   const [itemsToDisplay, setItemsToDisplay] = useState(9);
-  const handleAddToCart = (id) => {
-    const product = items.find((i) => i.id == id);
-    if (!user.cart.includes(product)) {
-      product.qty = 1;
-      setCartProduct(product);
-      console.log(product);
-      user.cart.push(product);
-    } else {
-      product.qty++;
-    }
-    navigate(`/cart/${user.id}`);
-  };
+  // const handleAddToCart = (id) => {
+  //   const product = items.find((i) => i.id == id);
+  //   if (!user.cart.includes(product)) {
+  //     product.qty = 1;
+  //     setCartProduct(product);
+  //     console.log(product);
+  //     user.cart.push(product);
+  //   } else {
+  //     product.qty++;
+  //   }
+  //   navigate(`/cart/${user.id}`);
+  // };
   const handleAddToWishlist = (id) => {
     const product = items.find((i) => i.id == id);
     if (!user.wishlist.includes(product)) {
@@ -38,9 +38,7 @@ export default function Products({
     <>
     <div className="page">
       <Category items={items}/>
-    {/* <h3 style={{ textAlign: "center", margin: "20px" }}>
-        <i class="bi bi-shop-window" style={{ color: "#dc3545" }}></i> Products
-      </h3> */}
+
       <div className="productsContainer">
         <div className="cards">
           {items.slice(0, itemsToDisplay).map((item) => (
