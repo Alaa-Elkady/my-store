@@ -27,7 +27,7 @@ export default function NavBar({ isUser, setIsUser }) {
         {isUser == true && (
           <>
             <Link to={"/cart/" + user.id} className="link">
-              <i className="bi bi-bag"></i>
+              <i class="bi bi-cart4"></i>
             </Link>
             <Link to={`/wishlist/${user.id}`} className="link">
               <i className="bi bi-heart-fill"></i>
@@ -48,11 +48,11 @@ export default function NavBar({ isUser, setIsUser }) {
           <>
             <Link
               href="#"
-              className="col"
+              className="name"
               style={{ textTransform: "capitalize" }}
               onClick={handleShow}
             >
-              <i className="bi bi-person-circle"></i>{" "}
+              <i class="bi bi-person-fill"></i>
               {user.fname + " " + user.lname}
             </Link>
             <Offcanvas

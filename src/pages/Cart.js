@@ -64,7 +64,7 @@ export default function Cart({ setCartProduct }) {
         ))}
       </table>
       <Link to='/products' className="back">
-      continue to shopping
+      <i class="bi bi-arrow-left"></i>continue to shopping
       </Link>
       <footer className="footer">
         <div className="d-flex">
