@@ -67,7 +67,7 @@ function App() {
           <Route path="/" element={<HomePage fourItems={fourItems} isUser={isUser}/>} />
           <Route path="/signUp" element={<SignUpForm />} />
           <Route path="/products" element={<Card items={items} isUser={isUser} wishlistProduct={wishlistProduct} setWishlistProduct={setWishlistProduct} setCartProduct={setCartProduct}/>} />
-          <Route path="/product/:id" element={<Details items={items}/>} />
+          <Route path="/product/:id" element={<Details items={items} fourItems={fourItems}  wishlistProduct={wishlistProduct} setWishlistProduct={setWishlistProduct} isUser={isUser}/>} />
           <Route path="/cart/:userId" element={<Cart setCartProduct={setCartProduct} />} />
           <Route path="/wishlist/:userId" element={<WishList setWishlistProduct={setWishlistProduct} />} />
         </Routes>
