@@ -1,11 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserData } from "../userData";
-import Category from "../components/Category";
 export default function Products({
   items,
   isUser,
-  setCartProduct,
   wishlistProduct,
   setWishlistProduct,
 }) {
@@ -26,8 +24,6 @@ export default function Products({
   return (
     <>
       <div className="page">
-        <Category items={items} />
-
         <div className="productsContainer">
           <input
             type="text"

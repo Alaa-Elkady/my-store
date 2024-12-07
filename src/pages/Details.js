@@ -1,8 +1,39 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import React from "react";
+import { useContext } from "react";
+import { UserData } from "../userData";
+
 import Button from "react-bootstrap/Button";
-export default function Details({ items, fourItems,isUser }) {
+export default function Details({
+  items,
+  fourItems,
+  isUser,
+  setCartProduct,
+  wishlistProduct,
+  setWishlistProduct,
+  cartProduct,
+}) {
   const id = useParams();
+  const { user } = useContext(UserData);
+  const navigate = useNavigate();
+  const handleAddToWishlist = (id) => {
+    const product = items.find((i) => i.id == id);
+    if (!user.wishlist.includes(product)) {
+      user.wishlist.push(product);
+      setWishlistProduct(product);
+      console.log(wishlistProduct);
+    }
+    navigate(`/wishlist/${user.id}`);
+  };
+  const handleAddToCart = (id) => {
+    const product = items.find((i) => i.id == id);
+    if (!user.cart.includes(product)) {
+      user.cart.push(product);
+      setCartProduct(product);
+      console.log(cartProduct);
+    }
+    navigate(`/cart/${user.id}`);
+  };
 
   return (
     <>
@@ -36,13 +67,21 @@ export default function Details({ items, fourItems,isUser }) {
                       </div>
                     </div>
                   </div>
-                 {isUser == true && (  <div className="btns">
-                    <i class="bi bi-suit-heart m-2"></i>
-                    <Button className="m-2 ">
-                      <i className="bi bi-bag "></i> Add to cart
-                    </Button>
-                    <Button className="m-2 ">BUY now</Button>
-                  </div>)}
+                  {isUser == true && (
+                    <div className="btns">
+                      <i
+                        class="bi bi-suit-heart m-2"
+                        onClick={() => handleAddToWishlist(item.id)}
+                      ></i>
+                      <Button
+                        className="m-2 "
+                        onClick={() => handleAddToCart(item.id)}
+                      >
+                        <i className="bi bi-bag "></i> Add to cart
+                      </Button>
+                      <Button className="m-2 ">BUY now</Button>
+                    </div>
+                  )}
                 </div>
                 <div className="products">
                   {fourItems.map((item) => (
