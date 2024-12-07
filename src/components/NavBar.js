@@ -5,11 +5,6 @@ import { UserData } from "../userData";
 import Offcanvas from "react-bootstrap/Offcanvas";
 export default function NavBar({ isUser, setIsUser }) {
   const { user } = useContext(UserData);
-  const navigate = useNavigate();
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <div className="navBar ">
       <div className="logo" as={Link} to="/">
@@ -44,58 +39,6 @@ export default function NavBar({ isUser, setIsUser }) {
           </>
         )}
 
-        {isUser == true && (
-          <>
-            <Link
-              href="#"
-              className="name"
-              style={{ textTransform: "capitalize" }}
-              onClick={handleShow}
-            >
-              <i class="bi bi-person-fill"></i>
-              {user.fname + " " + user.lname}
-            </Link>
-            <Offcanvas
-              show={show}
-              onHide={handleClose}
-              style={{ backgroundColor: "#0e030340", color: "white" }}
-            >
-              <Offcanvas.Header closeButton></Offcanvas.Header>
-              <Offcanvas.Body>
-                <div className="pages">
-                  <h2 style={{ color: "#dc3545" }}>Pages</h2>
-                  <Link>
-                    <i className="bi bi-person-circle"></i> My Profile
-                  </Link>
-                  <Link as={Link} to="/">
-                    <i class="bi bi-house"></i> Home
-                  </Link>
-                  <Link as={Link} to="/products">
-                    <i class="bi bi-shop-window"></i> Products
-                  </Link>
-                  <Link to={"/cart/" + user.id} className="">
-                    <i className="bi bi-bag"></i> My Cart
-                  </Link>
-                  <Link to={`/wishlist/${user.id}`} className="">
-                    <i className="bi bi-heart-fill"></i> My Wish List
-                  </Link>
-                  <Link as={Link} to="/addProduct">
-                    <i className="bi bi-bag-plus-fill"></i> Add new product
-                  </Link>
-                  <Link
-                    href="#"
-                    onClick={() => {
-                      setIsUser(false);
-                      navigate("/");
-                    }}
-                  >
-                    <i className="bi bi-box-arrow-right"></i> Logout
-                  </Link>
-                </div>
-              </Offcanvas.Body>
-            </Offcanvas>
-          </>
-        )}
       </div>
     </div>
   );

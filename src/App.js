@@ -12,6 +12,7 @@ import HomePage from "./pages/home";
 import Details from "./pages/Details";
 import Cart from "./pages/Cart";
 import WishList from "./pages/WishList";
+import RoutesIcons from "./components/rouets";
 function App() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -103,8 +104,9 @@ function App() {
             path="/wishlist/:userId"
             element={<WishList setWishlistProduct={setWishlistProduct} />}
           />
-        </Routes>
-        {/* <Footer isUser={isUser} setIsUser={setIsUser} /> */}
+        </Routes>{isUser===true &&
+        <RoutesIcons isUser={isUser} setIsUser={setIsUser} />}
+         {/* <Footer isUser={isUser} setIsUser={setIsUser} />  */}
       </Router>
     </UserProvider>
   );

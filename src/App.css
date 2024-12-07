@@ -921,3 +921,20 @@ body {
   margin: 0 10px;
   height: 40px;
 }
+.routesIcons {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  position: fixed;
+  left: -10px;
+  top: 33%;
+  z-index: 55;
+  background-color: #ebe9e1;
+  border-radius: 9px;
+}
+.routesIcons i {
+  color: #ff003d;
+  font-size: 25px;
+}
